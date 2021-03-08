@@ -1,0 +1,4 @@
+{
+  "cSpell.words": ["Formik", "craco", "tailwindcss", "compat"],
+  "css.lint.unknownAtRules": "ignore"
+}
