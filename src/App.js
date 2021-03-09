@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import FeedBack from './Feedback'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App = () => {
+  const [submittedFeedback, setSubmittedFeedback] = React.useState(false)
+  const [message, setMessage] = React.useState('')
+
+  const onSubmit = values => {
+    setSubmittedFeedback(true)
+    setMessage(values.name)
+  }
+  return submittedFeedback ? (
+    <ThankYou message={message} />
+  ) : (
+    <FeedBack onSubmit={onSubmit} />
+  )
 }
 
-export default App;
+const ThankYou = props => {
+  return (
+    <main className="flex my-10">
+      <h1 className="text-2xl text-gray-900 font-semibold m-auto">
+        Thanks for the feedback {props.message}!
+      </h1>
+    </main>
+  )
+}
+
+export default App
