@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        tool(name: 'nodejs', type: 'NodeJS')
+        tool(name: 'NodeJS', type: 'nodejs')
         sh 'npm install'
       }
     }
